@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Header from "../components/Header";
 import Jumbotron from "../components/Jumbotron";
 import Features from "../components/Features";
@@ -13,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
   mainHome: {
     minWidth: "100%",
     position: "absolute",
+    backgroundColor: "white",
   },
 }));
 
@@ -21,7 +21,7 @@ export default function Home() {
   const hpScreen = useMediaQuery("(max-width:600px)");
   const tabletScreen = useMediaQuery("(max-width:1000px)");
   return (
-    <>
+    <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg" style={{ padding: 0, margin: 0 }}>
         <Header />
@@ -34,6 +34,6 @@ export default function Home() {
           <Footer />
         </main>
       </Container>
-    </>
+    </React.Fragment>
   );
 }

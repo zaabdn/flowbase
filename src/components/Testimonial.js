@@ -1,14 +1,8 @@
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  Typography,
-  Button,
-  CssBaseline,
-  Box,
-  CardContent,
-} from "@material-ui/core";
+import { Typography, Grid, Box, CardContent } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  testimonial: {
     flexGrow: 1,
     padding: "100px 0",
     width: "100%",
@@ -51,69 +45,72 @@ export default function Testimonial() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <CssBaseline />
-      <Box textAlign="center">
-        <Box textAlign="center" p={1}>
-          <Box p={1}>
-            <Typography variant="h3" style={{ color: "white" }}>
-              What my students say
-            </Typography>
-            <Typography
-              variant="caption"
-              style={{ opacity: "0.8", color: "white", marginTop: "15px" }}
-            >
-              Create custom landing pages with Shades that convert more visitors{" "}
-              <br />
-              than any website—no coding required.
-            </Typography>
-          </Box>
-          <Box
-            my={10}
-            mx={0}
-            width="100%"
-            display="inline-block"
-            justifyContent="center"
-          >
-            {testimonials.map((testi) => (
-              <CardContent
-                className={classes.card}
-                key={testi.id}
-                component="div"
-                my={2}
-                overflow="auto"
-                style={{ display: "inline-block", width: "40%" }}
+    <>
+      <Grid container className={classes.testimonial}>
+        <Box textAlign="center">
+          <Box textAlign="center" p={1}>
+            <Box p={1}>
+              <Typography variant="h3" style={{ color: "white" }}>
+                What my students say
+              </Typography>
+              <Typography
+                variant="caption"
+                style={{ opacity: "0.8", color: "white", marginTop: "15px" }}
               >
-                <Typography
-                  variant="body2"
-                  color="textSecondary"
-                  style={{ margin: "10px", color: "white" }}
-                  align="left"
+                Create custom landing pages with Shades that convert more
+                visitors <br />
+                than any website—no coding required.
+              </Typography>
+            </Box>
+            <Box
+              my={10}
+              mx={0}
+              width="100%"
+              display="inline-block"
+              justifyContent="center"
+            >
+              {testimonials.map((testi) => (
+                <CardContent
+                  className={classes.card}
+                  key={testi.id}
+                  component="div"
+                  my={2}
+                  overflow="auto"
+                  style={{ display: "inline-block", width: "40%" }}
                 >
-                  “I waited to completely finish the course to rate it. This was
-                  my first approach to python, i am an excel and VBA user. The
-                  professor has an excellent way to explain it and a lot or
-                  order and organization. I really recommend it.”
-                </Typography>
-                <Box display="flex">
-                  <img src={testi.img} />
-                  <Box
-                    display="flex"
-                    flexDirection="column"
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    style={{ margin: "10px", color: "white" }}
                     align="left"
-                    style={{ margin: "10px" }}
                   >
-                    <Typography variant="body2">
-                      <b>{testi.name}</b>
-                    </Typography>
-                    <Typography variant="caption">Founder of Crips</Typography>
+                    “I waited to completely finish the course to rate it. This
+                    was my first approach to python, i am an excel and VBA user.
+                    The professor has an excellent way to explain it and a lot
+                    or order and organization. I really recommend it.”
+                  </Typography>
+                  <Box display="flex">
+                    <img src={testi.img} />
+                    <Box
+                      display="flex"
+                      flexDirection="column"
+                      align="left"
+                      style={{ margin: "10px" }}
+                    >
+                      <Typography variant="body2">
+                        <b>{testi.name}</b>
+                      </Typography>
+                      <Typography variant="caption">
+                        Founder of Crips
+                      </Typography>
+                    </Box>
                   </Box>
-                </Box>
-              </CardContent>
-            ))}
+                </CardContent>
+              ))}
+            </Box>
           </Box>
         </Box>
-      </Box>
-    </div>
+      </Grid>
+    </>
   );
 }

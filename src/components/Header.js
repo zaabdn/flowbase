@@ -1,17 +1,14 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography, Button, CssBaseline, Box } from "@material-ui/core";
-import { lightBlue } from "@material-ui/core/colors";
+import { Typography, Button, Grid, Box } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  header: {
     flexGrow: 1,
-    margin: 0,
-    padding: 0,
-    top: 0,
     width: "100%",
     position: "fixed",
     zIndex: "3",
     backgroundColor: "white",
+    justifyContent: "center",
   },
   input: {
     border: 0,
@@ -41,36 +38,35 @@ export default function Header() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <CssBaseline />
-      <Box
-        p={2}
-        display="flex"
-        flexWrap="nowrap"
-        css={{
-          maxWidth: "100%",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Box justifyContent="center">
-          <img src="/logo.png" />
-        </Box>
-        <Box className={classes.menu} display="flex" flexWrap="nowrap">
-          <Box justifyContent="center" className={classes.submenu}>
-            <Typography>Course topics</Typography>
+    <>
+      <Grid container className={classes.header}>
+        <Box
+          p={2}
+          display="flex"
+          flexWrap="nowrap"
+          css={{
+            alignItems: "center",
+          }}
+        >
+          <Box justifyContent="center">
+            <img src="/logo.png" />
           </Box>
-          <Box justifyContent="center" className={classes.submenu}>
-            <Typography>What students say</Typography>
+          <Box className={classes.menu} display="flex" flexWrap="nowrap">
+            <Box justifyContent="center" className={classes.submenu}>
+              <Typography>Course topics</Typography>
+            </Box>
+            <Box justifyContent="center" className={classes.submenu}>
+              <Typography>What students say</Typography>
+            </Box>
+          </Box>
+          <Box justifyContent="center" marginLeft="100px">
+            <Button>Sign in</Button>
+          </Box>
+          <Box justifyContent="center" marginLeft="30px">
+            <Button className={classes.btnSubscribe}>Get Started</Button>
           </Box>
         </Box>
-        <Box justifyContent="center" marginLeft="100px">
-          <Button>Sign in</Button>
-        </Box>
-        <Box justifyContent="center" marginLeft="30px">
-          <Button className={classes.btnSubscribe}>Get Started</Button>
-        </Box>
-      </Box>
-    </div>
+      </Grid>
+    </>
   );
 }
